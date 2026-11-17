@@ -1,0 +1,296 @@
+/* ==========================================================================
+   WP Lead Booster — Frontend Styles (Ultra-light, No Dependencies)
+   ========================================================================== */
+
+:root {
+  --wplb-green: #25D366;
+  --wplb-green-dark: #128C7E;
+  --wplb-dark: #075E54;
+  --wplb-bg-chat: #ECE5DD;
+  --wplb-font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* 1. ANNOUNCEMENT BAR */
+.wplb-bar {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(135deg, #1e293b, #0f172a);
+  color: #ffffff;
+  padding: 10px 16px;
+  font-family: var(--wplb-font);
+  font-size: 14px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  z-index: 99998;
+  border-bottom: 2px solid var(--wplb-green);
+}
+
+.wplb-bar-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  text-align: center;
+}
+
+.wplb-bar-text {
+  font-weight: 500;
+  color: #f8fafc;
+}
+
+.wplb-countdown {
+  display: inline-flex;
+  gap: 6px;
+}
+
+.wplb-time-unit {
+  background: rgba(255, 255, 255, 0.12);
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-size: 13px;
+  color: #38bdf8;
+}
+
+.wplb-time-unit strong {
+  color: #ffffff;
+}
+
+.wplb-bar-cta {
+  background: var(--wplb-green);
+  color: #ffffff;
+  border: none;
+  border-radius: 20px;
+  padding: 6px 16px;
+  font-weight: 600;
+  font-size: 13px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.wplb-bar-cta:hover {
+  background: #20ba5a;
+  transform: scale(1.04);
+}
+
+.wplb-bar-close {
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+  margin-left: 8px;
+}
+
+.wplb-bar-close:hover {
+  color: #ffffff;
+}
+
+/* 2. FLOATING WHATSAPP WIDGET */
+.wplb-widget {
+  position: fixed;
+  bottom: 24px;
+  z-index: 99999;
+  font-family: var(--wplb-font);
+}
+
+.wplb-widget.pos-right {
+  right: 24px;
+}
+
+.wplb-widget.pos-left {
+  left: 24px;
+}
+
+/* Gatillo */
+.wplb-btn {
+  position: relative;
+  width: 60px;
+  height: 60px;
+  background-color: var(--wplb-green);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(37, 211, 102, 0.45);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.wplb-btn:hover {
+  transform: scale(1.1);
+}
+
+/* Efecto de pulso concéntrico */
+.wplb-pulse {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  border: 2px solid var(--wplb-green);
+  border-radius: 50%;
+  animation: wplbPulse 2s infinite;
+  pointer-events: none;
+}
+
+@keyframes wplbPulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  70% { transform: scale(1.35); opacity: 0; }
+  100% { transform: scale(1.35); opacity: 0; }
+}
+
+/* Ventana de Chat */
+.wplb-box {
+  position: absolute;
+  bottom: 75px;
+  width: 320px;
+  max-width: calc(100vw - 32px);
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  opacity: 0;
+  transform: translateY(20px) scale(0.95);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.wplb-widget.pos-right .wplb-box {
+  right: 0;
+}
+
+.wplb-widget.pos-left .wplb-box {
+  left: 0;
+}
+
+.wplb-box.is-open {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+.wplb-box-header {
+  background: var(--wplb-dark);
+  color: #ffffff;
+  padding: 14px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.wplb-avatar {
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wplb-box-title {
+  flex: 1;
+}
+
+.wplb-box-title h4 {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.wplb-box-title p {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: #a7f3d0;
+}
+
+.wplb-close {
+  background: transparent;
+  border: none;
+  color: #e2e8f0;
+  font-size: 22px;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0 4px;
+}
+
+.wplb-box-body {
+  background: var(--wplb-bg-chat);
+  padding: 16px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+}
+
+.wplb-bubble {
+  background: #ffffff;
+  padding: 10px 14px;
+  border-radius: 0 12px 12px 12px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  max-width: 85%;
+  position: relative;
+}
+
+.wplb-bubble p {
+  margin: 0;
+  font-size: 13.5px;
+  color: #1e293b;
+  line-height: 1.4;
+}
+
+.wplb-bubble-time {
+  display: block;
+  font-size: 10px;
+  color: #94a3b8;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.wplb-box-footer {
+  padding: 12px 16px;
+  background: #ffffff;
+}
+
+.wplb-cta-btn {
+  width: 100%;
+  background: var(--wplb-green);
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.2s;
+}
+
+.wplb-cta-btn:hover {
+  background: #20ba5a;
+}
+
+/* Mobile responsive */
+@media (max-width: 600px) {
+  .wplb-widget {
+    bottom: 16px;
+  }
+  .wplb-widget.pos-right {
+    right: 16px;
+  }
+  .wplb-widget.pos-left {
+    left: 16px;
+  }
+  .wplb-btn {
+    width: 52px;
+    height: 52px;
+  }
+}
