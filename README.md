@@ -1,4 +1,4 @@
-# 🚀 WP Lead Booster — WhatsApp & Conversion Suite for WordPress
+ WP Lead Booster — WhatsApp & Conversion Suite for WordPress
 
 <div align="center">
 
